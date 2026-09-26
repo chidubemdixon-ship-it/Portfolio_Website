@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dickson Chidubem Ejiekpe — UI/UX Designer</title>
+<meta name="description" content="UI/UX Designer & Full-Stack Developer based in Lagos, Nigeria. Case studies in dashboard design, productivity tools and e-commerce UX.">
+<meta property="og:title" content="Dickson Chidubem Ejiekpe — UI/UX Designer">
+<meta property="og:description" content="UI/UX Designer & Full-Stack Developer based in Lagos, Nigeria.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16151b;
+    --ink-soft: #423f4d;
+    --paper: #f3efe6;
+    --panel: #fdfcf9;
+    --accent: #6C3CE9;
+    --accent-ink: #ffffff;
+    --amber: #FF7A29;
+    --teal: #00C2A8;
+    --pink: #FF3D7F;
+    --line: rgba(22,21,27,0.14);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #f3efe6;
+      --ink-soft: #c7c2b8;
+      --paper: #14131a;
+      --panel: #1e1c26;
+      --accent: #9B7BFF;
+      --accent-ink: #14131a;
+      --amber: #FFA24C;
+      --teal: #2FE3C8;
+      --pink: #FF6B9D;
+      --line: rgba(243,239,230,0.16);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #f3efe6;
+    --ink-soft: #c7c2b8;
+    --paper: #14131a;
+    --panel: #1e1c26;
+    --accent: #9B7BFF;
+    --accent-ink: #14131a;
+    --amber: #FFA24C;
+    --teal: #2FE3C8;
+    --pink: #FF6B9D;
+    --line: rgba(243,239,230,0.16);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  a { color: inherit; }
+  img, svg { max-width: 100%; display: block; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  .overflow-scroll { overflow-x: auto; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; }
+  .brand { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.05rem; text-decoration: none; }
+  .navlinks { display: flex; gap: 28px; font-size: 0.92rem; }
+  .navlinks a { text-decoration: none; color: var(--ink-soft); transition: color .2s; }
+  .navlinks a:hover, .navlinks a:focus-visible { color: var(--ink); }
+
+  /* HERO */
+  header.hero {
+    padding: 110px 0 90px; border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(680px 420px at 88% -10%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%),
+      radial-gradient(520px 360px at 8% 110%, color-mix(in srgb, var(--amber) 22%, transparent), transparent 70%);
+  }
+  .hero-role { font-size: 0.95rem; color: var(--accent); font-weight: 700; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); line-height: 0.98; max-width: 14ch; }
+  .hero p.lede { max-width: 54ch; font-size: 1.15rem; color: var(--ink-soft); margin-top: 26px; }
+  .hero-actions { display: flex; gap: 14px; margin-top: 38px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 24px; border-radius: 3px; font-size: 0.95rem; font-weight: 600;
+    text-decoration: none; border: 1px solid var(--ink);
+    transition: transform .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-solid { background: linear-gradient(120deg, var(--accent), var(--pink)); color: #fff; border-color: transparent; }
+  .btn-ghost { background: transparent; color: var(--ink); }
+
+  /* SECTION HEADS */
+  section { padding: 90px 0; border-bottom: 1px solid var(--line); }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 56px; flex-wrap: wrap; }
+  .section-head h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); }
+  .section-head .count { color: var(--ink-soft); font-size: 0.95rem; }
+
+  /* CASE STUDIES */
+  .case { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 54px; padding: 48px 0; border-top: 1px solid var(--line); }
+  .case:first-of-type { border-top: none; padding-top: 0; }
+  .case-visual {
+    aspect-ratio: 4/3; border-radius: 4px;
+    border: 1px solid var(--line); position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .case-visual .glyph { font-family: 'Fraunces', serif; font-size: 4.5rem; color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,0.15); }
+  .case-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .tag { font-size: 0.78rem; padding: 4px 10px; border: 1px solid var(--line); border-radius: 20px; color: var(--ink-soft); }
+  .tag.c-violet { background: color-mix(in srgb, var(--accent) 16%, transparent); border-color: color-mix(in srgb, var(--accent) 35%, transparent); color: var(--accent); }
+  .tag.c-amber { background: color-mix(in srgb, var(--amber) 18%, transparent); border-color: color-mix(in srgb, var(--amber) 40%, transparent); color: var(--amber); }
+  .tag.c-teal { background: color-mix(in srgb, var(--teal) 18%, transparent); border-color: color-mix(in srgb, var(--teal) 40%, transparent); color: var(--teal); }
+  .tag.c-pink { background: color-mix(in srgb, var(--pink) 16%, transparent); border-color: color-mix(in srgb, var(--pink) 38%, transparent); color: var(--pink); }
+  .case h3 { font-size: 1.7rem; margin-bottom: 6px; }
+  .case .meta { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 22px; }
+  .case .stat-row { display: flex; gap: 28px; margin: 26px 0; flex-wrap: wrap; }
+  .stat b { font-family: 'Fraunces', serif; font-size: 1.6rem; display: block; color: var(--accent); }
+  .stat span { font-size: 0.82rem; color: var(--ink-soft); }
+  .process { margin-top: 24px; }
+  .process ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .process li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; font-size: 0.95rem; }
+  .process li .step { color: var(--accent); font-weight: 700; font-family: 'Fraunces', serif; }
+  .case p { color: var(--ink-soft); }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 0.9fr 1.4fr; gap: 60px; align-items: start; }
+  .avatar {
+    width: 100%; aspect-ratio: 1; border-radius: 6px;
+    background: linear-gradient(155deg, var(--accent), var(--pink) 55%, var(--amber));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .avatar span { font-family: 'Fraunces', serif; font-size: 4rem; color: #fff; text-shadow: 0 2px 20px rgba(0,0,0,0.2); }
+  .about-grid h3 { font-size: 1.5rem; margin-bottom: 4px; }
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .skills .tag { color: var(--ink); }
+
+  /* CONTACT */
+  .contact-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: end; }
+  .contact h2 { font-size: clamp(2rem, 5vw, 3.4rem); max-width: 12ch; }
+  .contact-list { display: grid; gap: 16px; }
+  .contact-list a { text-decoration: none; font-size: 1.05rem; display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+  .contact-list a span.label { color: var(--ink-soft); font-size: 0.85rem; }
+
+  footer { padding: 32px 0; text-align: center; color: var(--ink-soft); font-size: 0.85rem; }
+
+  .back-to-top {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent), var(--pink));
+    color: var(--accent-ink);
+    text-decoration: none;
+    font-size: 1.35rem;
+    line-height: 1;
+    box-shadow: 0 14px 28px rgba(108, 60, 233, 0.24);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    z-index: 30;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .back-to-top:hover, .back-to-top:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 760px) {
+    .navlinks { display: none; }
+    .case, .about-grid, .contact-inner { grid-template-columns: 1fr; }
+    .case-visual { order: -1; }
+    .back-to-top { right: 16px; bottom: 16px; width: 44px; height: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Dickson Chidubem</a>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="resume.html" target="_blank" rel="noopener" class="resume-nav" style="color:var(--accent); font-weight:600;">Resume ↓</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-role" style="display:flex; align-items:center; gap:10px;">
+      <span style="display:inline-flex; align-items:center; gap:6px; padding:4px 12px; border-radius:20px; background:color-mix(in srgb, var(--teal) 18%, transparent); color:var(--teal); font-size:0.82rem;">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--teal);"></span> Open to junior UI/UX & frontend roles
+      </span>
+    </div>
+    <h1>I design and build digital products people enjoy using.</h1>
+    <p class="lede">I'm Dickson Chidubem Ejiekpe, a UI/UX designer based in Lagos, Nigeria. I love turning real-world problems into interfaces that are clear and easy to use, and I like taking my own designs all the way to shipped, working code.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#work">View case studies</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <div class="count">4 case studies</div>
+    </div>
+
+    <div class="case">
+      <div class="case-visual" style="background: linear-gradient(135deg, var(--accent), var(--pink));"><span class="glyph">Eo</span></div>
+      <div>
+        <div class="case-tags"><span class="tag c-violet">Elevare Human Solutions</span><span class="tag c-violet">Hiring Dashboard</span><span class="tag c-violet">Figma + Frontend</span></div>
+        <h3>Hiring Operations Dashboard for Elevare Human Solutions</h3>
+        <div class="meta">UI/UX Designer &amp; Frontend Developer · Figma, HTML/CSS, JavaScript</div>
+        <p>Elevare Human Solutions needed a clearer way to track candidates moving through their hiring pipeline. I designed and built a dashboard that brings every stage of the hiring process — sourcing, interviews, offers — into one scannable view.</p>
+        <div class="process">
+          <ol>
+            <li><span class="step">Discover</span><span>Looked at how their hiring team tracked candidates and where visibility broke down across stages.</span></li>
+            <li><span class="step">Define</span><span>Prioritized a clear view of where every candidate sits in the pipeline, so nothing falls through the cracks.</span></li>
+            <li><span class="step">Design</span><span>Designed the full interface in Figma — candidate pipeline view, stage indicators and a consistent visual system for status and progress.</span></li>
+            <li><span class="step">Deliver</span><span>Built the frontend from the Figma design, translating the component system into working HTML, CSS and JavaScript.</span></li>
+          </ol>
+        </div>
+        <p style="font-size:0.88rem;">Add specifics here — how many hiring stages it covers, or feedback from Elevare's team.</p>
+        <div style="display:flex; gap:12px; margin-top:16px;">
+          <a href="https://enterprise-ops-dashboard-eight.vercel.app/" target="_blank" rel="noopener" style="font-size:0.88rem; font-weight:600; color:var(--accent); text-decoration:none;">Live demo →</a>
+          <a href="https://github.com/chidubemdixon-ship-it/Enterprise-Ops-Dashboard.git" target="_blank" rel="noopener" style="font-size:0.88rem; font-weight:600; color:var(--accent); text-decoration:none;">View code →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-visual" style="background: linear-gradient(135deg, var(--amber), var(--teal));"><span class="glyph">Pp</span></div>
+      <div>
+        <div class="case-tags"><span class="tag c-amber">GoMyCode Capstone</span><span class="tag c-amber">Web App</span><span class="tag c-amber">Task Management</span></div>
+        <h3>PriorityPulse — Task Management Web App</h3>
+        <div class="meta">UI/UX Designer &amp; Developer · Final Capstone Project, GoMyCode Software Development Bootcamp · Figma, HTML/CSS, JavaScript/TypeScript</div>
+        <p>Most people juggle to-dos across notes apps, reminders and their memory. As my final capstone project for the GoMyCode Software Development Bootcamp, I designed and built PriorityPulse, a task-management app to help anyone organize their day-to-day work in one place — deployed and live.</p>
+        <div class="process">
+          <ol>
+            <li><span class="step">Discover</span><span>Looked at common friction points in everyday task apps — cluttered lists, no clear sense of priority.</span></li>
+            <li><span class="step">Define</span><span>Focused the product around one idea: make it obvious what to do next, not just what's on the list.</span></li>
+            <li><span class="step">Design</span><span>Designed the task list, priority states and add/edit flows in Figma, keeping the interface minimal and fast to scan.</span></li>
+            <li><span class="step">Deliver</span><span>Built and shipped the full app — frontend deployed on Vercel, backend/API deployed on Render.</span></li>
+          </ol>
+        </div>
+        <div style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;">
+          <a href="https://task-manager-frontend-dickson5.vercel.app/" target="_blank" rel="noopener" style="font-size:0.88rem; font-weight:600; color:var(--amber); text-decoration:none;">Live demo →</a>
+          <a href="https://prioritypulse-4ewd.onrender.com" target="_blank" rel="noopener" style="font-size:0.88rem; font-weight:600; color:var(--amber); text-decoration:none;">API / backend →</a>
+          <a href="https://github.com/chidubemdixon-ship-it/Labphase.git" target="_blank" rel="noopener" style="font-size:0.88rem; font-weight:600; color:var(--amber); text-decoration:none;">View code →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-visual" style="background: linear-gradient(135deg, var(--teal), var(--accent));"><span class="glyph">Rs</span></div>
+      <div>
+        <div class="case-tags"><span class="tag c-teal">Hospitality</span><span class="tag c-teal">Bootstrap</span><span class="tag c-teal">Course Project</span></div>
+        <h3>The Reserve — Restaurant & Reservations Site</h3>
+        <div class="meta">UI/UX Designer &amp; Frontend Developer · Bootstrap CSS Course Project · HTML, CSS, Bootstrap 5</div>
+        <p>The Reserve is a restaurant and reservations site I designed and built as a Bootstrap CSS course project, aimed at giving an upscale dining brand a site that feels as considered as the food.</p>
+        <div class="process">
+          <ol>
+            <li><span class="step">Discover</span><span>Looked at how upscale restaurant sites use typography and imagery to signal quality before a visitor reads a word of copy.</span></li>
+            <li><span class="step">Define</span><span>Aimed for a warm, editorial feel — a serif and sans pairing that reads elegant rather than corporate.</span></li>
+            <li><span class="step">Design</span><span>Paired EB Garamond with Be Vietnam Pro, and laid out the navigation, hero and menu sections using Bootstrap's grid and components.</span></li>
+            <li><span class="step">Deliver</span><span>Built the full responsive site in HTML, CSS and Bootstrap 5.3.3, then deployed it live.</span></li>
+          </ol>
+        </div>
+        <div style="display:flex; gap:12px; margin-top:16px;">
+          <a href="https://the-reserve-st-git-main-dickson5.vercel.app/" target="_blank" rel="noopener" style="font-size:0.88rem; font-weight:600; color:var(--teal); text-decoration:none;">Live demo →</a>
+          <a href="https://github.com/chidubemdixon-ship-it/the-reserve-st.git" target="_blank" rel="noopener" style="font-size:0.88rem; font-weight:600; color:var(--teal); text-decoration:none;">View code →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-visual" style="background: linear-gradient(135deg, var(--pink), var(--amber));"><span class="glyph">Th</span></div>
+      <div>
+        <div class="case-tags"><span class="tag c-pink">Personal Project</span><span class="tag c-pink">Mobile App</span><span class="tag c-pink">Figma Prototype</span></div>
+        <h3>Threadly — Fashion Resale Shopping App</h3>
+        <div class="meta">UI/UX Designer · Self-Directed Project · Figma</div>
+        <p>Threadly is a concept for a fashion resale shopping app, designed to make buying secondhand feel as considered and trustworthy as buying new. A fully interactive 27-screen prototype, self-directed to explore mobile e-commerce patterns.</p>
+        <div class="process">
+          <ol>
+            <li><span class="step">Discover</span><span>Looked at existing resale apps and where they tend to feel cluttered or hard to trust — inconsistent photos, unclear condition info.</span></li>
+            <li><span class="step">Define</span><span>Aimed for a clean, editorial browsing experience with clear category filtering and consistent product presentation.</span></li>
+            <li><span class="step">Design</span><span>Designed the full flow in Figma — category navigation, product grid, item detail and checkout — using a warm neutral palette with color-coded categories.</span></li>
+            <li><span class="step">Deliver</span><span>Built out a 27-screen interactive prototype so the flow can be clicked through end-to-end.</span></li>
+          </ol>
+        </div>
+        <div style="display:flex; gap:12px; margin-top:16px;">
+          <a href="https://www.figma.com/proto/ut2lO1hCT1522Ffp3O3Z5t/Threadly-%E2%80%94-Fashion-Resale-Shopping-UI?node-id=1-2&p=f&t=a5HvKSXQgtXNwdID-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2" target="_blank" rel="noopener" style="font-size:0.88rem; font-weight:600; color:var(--pink); text-decoration:none;">View prototype →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head"><h2>About</h2></div>
+    <div class="about-grid">
+      <div class="avatar"><span>DC</span></div>
+      <div>
+        <h3>Hi, I'm Dickson.</h3>
+        <p style="color:var(--ink-soft)">I'm a UI/UX designer based in Lagos, Nigeria, currently an undergraduate student and a recent graduate of the Full-Stack Development bootcamp at GoMyCode. I love anything design-related, and I get most excited working on real-world projects rather than exercises — I'd rather design something and then actually build it.</p>
+        <p style="color:var(--ink-soft)">I'm especially drawn to working across both sides of a product: designing the experience in Figma and then shipping it myself with frontend and backend code. That combination is what I'm building my career around.</p>
+        <div class="skills">
+          <span class="tag">Figma</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Bootstrap</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">DOM</span>
+          <span class="tag">Databases</span>
+          <span class="tag">APIs</span>
+          <span class="tag">Algorithms</span>
+          <span class="tag">Adobe Illustrator</span>
+          <span class="tag">Adobe Photoshop</span>
+          <span class="tag">CorelDraw</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:none;">
+  <div class="wrap contact contact-inner">
+    <h2>Let's build something people will actually enjoy using.</h2>
+    <div>
+      <a class="btn btn-solid resume-download" href="#" style="margin-bottom:24px; display:inline-flex;">Download resume (PDF)</a>
+      <div class="contact-list">
+      <a href="mailto:chidubemdickson123@gmail.com">Email <span class="label">chidubemdickson123@gmail.com</span></a>
+      <a href="https://www.linkedin.com/in/chidubem-dickson-6a0053416" target="_blank" rel="noopener">LinkedIn <span class="label">/in/chidubem-dickson</span></a>
+      <a href="https://github.com/chidubemdixon-ship-it" target="_blank" rel="noopener">GitHub <span class="label">@chidubemdixon-ship-it</span></a>
+      <a href="#">Location <span class="label">Lagos, Nigeria</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Dickson Chidubem Ejiekpe</footer>
+
+<a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
+
+<script>
+  const backToTopButton = document.querySelector('.back-to-top');
+
+  const toggleBackToTop = () => {
+    if (!backToTopButton) return;
+    if (window.scrollY > 260) {
+      backToTopButton.classList.add('visible');
+    } else {
+      backToTopButton.classList.remove('visible');
+    }
+  };
+
+  const resumeButtons = document.querySelectorAll('.resume-download');
+  resumeButtons.forEach((resumeButton) => {
+    resumeButton.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      const escapePdfText = (value) => value
+        .replace(/\\/g, '\\\\')
+        .replace(/\(/g, '\\(')
+        .replace(/\)/g, '\\)');
+
+      const lines = [
+        'DICKSON CHIDUBEM EJIEKPE',
+        'UI/UX Designer & Full-Stack Developer',
+        'Lagos, Nigeria | chidubemdickson123@gmail.com | LinkedIn | GitHub | Portfolio',
+        '',
+        'PROFILE',
+        'UI/UX Designer based in Lagos, Nigeria, with hands-on training in both product design and full-stack development.',
+        'Comfortable taking a project from research and design to product delivery.',
+        '',
+        'SKILLS',
+        'Figma • Adobe Illustrator • Adobe Photoshop • CorelDraw • HTML • CSS • Bootstrap • JavaScript • TypeScript • CSS',
+        'Frameworks • SQL • Databases • APIs • User Research • Wireframing • Prototyping • Visual Design',
+        '',
+        'PROJECTS',
+        'Hiring Operations Dashboard — Elevare Human Solutions | UI/UX Design & Frontend Build',
+        '• Designed a dashboard UI in Figma to give Elevare Human Solutions a clear, single view of candidates moving through their hiring pipeline.',
+        '• Built the frontend from the Figma design using HTML, CSS, and JavaScript, translating the component system into working code.',
+        '• Deployed live: Live demo',
+        '',
+        'PriorityPulse — Task Management Web App | Final Capstone Project, GoMyCode Software Development Bootcamp',
+        '• Designed and built a task-management app to help users organize day-to-day work from list view to priority status.',
+        '• Focused the interface on making the next task obvious, reducing visual clutter common in similar tools.',
+        '• Deployed live — frontend on Vercel, backend/API on Render: Live demo',
+        '',
+        'The Reserve — Restaurant & Reservations Site | Bootstrap CSS Course Project',
+        '• Designed and built a restaurant and reservations site with an elegant, editorial feel using a serif/sans pairing.',
+        '• Built the full responsive layout with HTML, CSS, and Bootstrap 5.3.3.',
+        '• Deployed live: Live demo',
+        '',
+        'Threadly — Fashion Resale Shopping App | Self-Directed UI/UX Project',
+        '• Designed a 27-screen interactive mobile prototype for a fashion resale shopping app focused on trust and clarity.',
+        '• Created a clean, category-based shopping flow with product detail and checkout interactions.',
+        '• Prototype: View on Figma',
+        '',
+        'CERTIFICATIONS & TRAINING',
+        'GoMyCode — Full-Stack Software Development | 2026',
+        '• Completed a full-stack development bootcamp covering frontend and backend fundamentals.',
+        'GoMyCode — UI/UX Design | 2024 — 2025',
+        '• Completed a UI/UX design program covering research, wireframing, prototyping and visual design.',
+        '',
+        'EDUCATION',
+        'MTSS — Secondary School Certificate — Graduated July 2026'
+      ];
+
+      const streamText = lines.map((line, index) => {
+        const y = 780 - (index * 22);
+        const safeLine = escapePdfText(line);
+
+        if (!safeLine.trim()) {
+          return 'BT\n/F1 12 Tf\n72 760 Td\n() Tj\nET';
+        }
+
+        const fontSize = index === 0 ? 18 : (index === 2 || index === 4 || index === 8 || index === 12 || index === 23 || index === 29 ? 12 : 10);
+        return `BT\n/F1 ${fontSize} Tf\n72 ${y} Td\n(${safeLine}) Tj\nET`;
+      }).join('\n');
+
+      const objects = [
+        '<< /Type /Catalog /Pages 2 0 R >>',
+        '<< /Type /Pages /Kids [3 0 R] /Count 1 >>',
+        '<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>',
+        `<< /Length ${new TextEncoder().encode(streamText).length} >>\nstream\n${streamText}\nendstream`,
+        '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>'
+      ];
+
+      const pdfChunks = ['%PDF-1.4\n'];
+      const offsets = [0];
+      objects.forEach((obj, index) => {
+        offsets.push(pdfChunks.join('').length);
+        pdfChunks.push(`${index + 1} 0 obj\n${obj}\nendobj\n`);
+      });
+
+      const xrefStart = pdfChunks.join('').length;
+      pdfChunks.push(`xref\n0 ${objects.length + 1}\n0000000000 65535 f \n`);
+      for (let i = 1; i <= objects.length; i++) {
+        pdfChunks.push(`${String(offsets[i]).padStart(10, '0')} 00000 n \n`);
+      }
+      pdfChunks.push(`trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xrefStart}\n%%EOF`);
+
+      const pdfBytes = pdfChunks.join('');
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Dickson_Chidubem_Ejiekpe_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    });
+  });
+
+  window.addEventListener('scroll', toggleBackToTop, { passive: true });
+  toggleBackToTop();
+</script>
+
+</body>
+</html>
